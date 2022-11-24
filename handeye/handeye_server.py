@@ -89,8 +89,7 @@ def parse_args():
     args = parser.parse_args(clean_argv)
     return args
 
-
-if __name__ == '__main__':
+def main():
     args = parse_args()
     log_level = rospy.DEBUG if args.debug else rospy.INFO
     node_name = os.path.splitext(os.path.basename(__file__))[0]
@@ -106,3 +105,6 @@ if __name__ == '__main__':
         srv_name = handeye_srv.resolved_name
         rospy.loginfo('HandEye server is up and running: {}'.format(srv_name))
         rospy.spin()
+
+if __name__ == '__main__':
+    main()
